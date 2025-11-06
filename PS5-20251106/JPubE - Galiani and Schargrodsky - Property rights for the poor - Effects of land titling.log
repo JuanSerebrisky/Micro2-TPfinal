@@ -1,0 +1,545 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:\Users\maior\OneDrive\2016\Documentos\2022\MAECO - MICROECONOMETRIA II 2023\Microeconometria II - Practicas 2023 - PS 5\JPubE - Galiani and Schargrodsky - P
+> roperty rights for the poor - Effects of land titling.log
+  log type:  text
+ opened on:  26 Aug 2023, 12:45:08
+
+. 
+end of do-file
+
+. do "C:\Users\maior\AppData\Local\Temp\STD1b78_000000.tmp"
+
+. *** Arma el matching dentro de los dataset (más de esto en la unidad de matching)
+.         run "JPubE - Galiani and Schargrodsky - Property rights for the poor - Matching datasets.do"
+
+. 
+end of do-file
+
+. do "C:\Users\maior\AppData\Local\Temp\STD1b78_000000.tmp"
+
+.         ttest distanceToCreek if neighborhood<5 & repeatedParcel==0, by (propertyOffer) unequal welch
+variable distanceToCreek not found
+r(111);
+
+end of do-file
+
+r(111);
+
+. do "C:\Users\maior\AppData\Local\Temp\STD1b78_000000.tmp"
+
+.         use "JPubE - Galiani and Schargrodsky - Property rights for the poor - investment", clear
+
+.         * Panel A
+.         ttest distanceToCreek if neighborhood<5 & repeatedParcel==0, by (propertyOffer) unequal welch
+
+Two-sample t test with unequal variances
+------------------------------------------------------------------------------
+   Group |     Obs        Mean    Std. err.   Std. dev.   [95% conf. interval]
+---------+--------------------------------------------------------------------
+       0 |     410    1.995122    .0614876    1.245029    1.874251    2.115993
+       1 |     672     1.90625    .0345769    .8963361    1.838358    1.974142
+---------+--------------------------------------------------------------------
+Combined |   1,082    1.939926    .0316964    1.042614    1.877733     2.00212
+---------+--------------------------------------------------------------------
+    diff |             .088872    .0705428                 -.04964    .2273839
+------------------------------------------------------------------------------
+    diff = mean(0) - mean(1)                                      t =   1.2598
+H0: diff = 0                             Welch's degrees of freedom =  669.056
+
+    Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = 0.8959         Pr(|T| > |t|) = 0.2082          Pr(T > t) = 0.1041
+
+.         ttest distToNonSquatted if neighborhood<5 & repeatedParcel==0, by (propertyOffer) unequal welch
+
+Two-sample t test with unequal variances
+------------------------------------------------------------------------------
+   Group |     Obs        Mean    Std. err.   Std. dev.   [95% conf. interval]
+---------+--------------------------------------------------------------------
+       0 |     410    1.731707     .058836    1.191338    1.616049    1.847366
+       1 |     672    1.767857    .0336898    .8733389    1.701707    1.834007
+---------+--------------------------------------------------------------------
+Combined |   1,082    1.754159    .0305637    1.005354    1.694188     1.81413
+---------+--------------------------------------------------------------------
+    diff |           -.0361498    .0677988               -.1692706    .0969709
+------------------------------------------------------------------------------
+    diff = mean(0) - mean(1)                                      t =  -0.5332
+H0: diff = 0                             Welch's degrees of freedom =  678.052
+
+    Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = 0.2970         Pr(|T| > |t|) = 0.5941          Pr(T > t) = 0.7030
+
+.         ttest parcelSurface if neighborhood<5 & repeatedParcel==0, by (propertyOffer) unequal welch
+
+Two-sample t test with unequal variances
+------------------------------------------------------------------------------
+   Group |     Obs        Mean    Std. err.   Std. dev.   [95% conf. interval]
+---------+--------------------------------------------------------------------
+       0 |     410     287.219    4.855861     98.3237    277.6734    296.7645
+       1 |     672    277.6622    2.799885    72.58132    272.1646    283.1598
+---------+--------------------------------------------------------------------
+Combined |   1,082    281.2835    2.534285    83.36219    276.3109    286.2562
+---------+--------------------------------------------------------------------
+    diff |            9.556743    5.605243               -1.448874    20.56236
+------------------------------------------------------------------------------
+    diff = mean(0) - mean(1)                                      t =   1.7050
+H0: diff = 0                             Welch's degrees of freedom =  681.574
+
+    Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = 0.9557         Pr(|T| > |t|) = 0.0887          Pr(T > t) = 0.0443
+
+.         ttest blockCorner if neighborhood<5 & repeatedParcel==0, by (propertyOffer) unequal welch
+
+Two-sample t test with unequal variances
+------------------------------------------------------------------------------
+   Group |     Obs        Mean    Std. err.   Std. dev.   [95% conf. interval]
+---------+--------------------------------------------------------------------
+       0 |     410    .1902439    .0194076     .392973    .1520929    .2283949
+       1 |     672      .15625     .014017    .3633626    .1287275    .1837725
+---------+--------------------------------------------------------------------
+Combined |   1,082    .1691312    .0114016    .3750411    .1467595     .191503
+---------+--------------------------------------------------------------------
+    diff |            .0339939    .0239401               -.0129978    .0809856
+------------------------------------------------------------------------------
+    diff = mean(0) - mean(1)                                      t =   1.4200
+H0: diff = 0                             Welch's degrees of freedom =   814.02
+
+    Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = 0.9220         Pr(|T| > |t|) = 0.1560          Pr(T > t) = 0.0780
+
+. 
+end of do-file
+
+. do "C:\Users\maior\AppData\Local\Temp\STD1b78_000000.tmp"
+
+. 
+.         * Panel B
+.         ttest ageOrigSquatter if neighborhood<5 & repeatedParcel==0 & inBothDatasets==3 & nonSurveyed==. & householdArrivedBefore1986==1, by (propertyOffer) unequal welc
+> h
+
+Two-sample t test with unequal variances
+------------------------------------------------------------------------------
+   Group |     Obs        Mean    Std. err.   Std. dev.   [95% conf. interval]
+---------+--------------------------------------------------------------------
+       0 |     112      48.875    .9384299    9.931409    47.01544    50.73456
+       1 |     182    50.40659    .7611298     10.2682    48.90476    51.90842
+---------+--------------------------------------------------------------------
+Combined |     294    49.82313    .5920503    10.15155    48.65792    50.98834
+---------+--------------------------------------------------------------------
+    diff |           -1.531593    1.208292               -3.911652    .8484651
+------------------------------------------------------------------------------
+    diff = mean(0) - mean(1)                                      t =  -1.2676
+H0: diff = 0                             Welch's degrees of freedom =  243.081
+
+    Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = 0.1031         Pr(|T| > |t|) = 0.2062          Pr(T > t) = 0.8969
+
+.         ttest femaleOrigSquatter if neighborhood<5 & repeatedParcel==0 & inBothDatasets==3 & nonSurveyed==. & householdArrivedBefore1986==1, by (propertyOffer) unequal w
+> elch
+
+Two-sample t test with unequal variances
+------------------------------------------------------------------------------
+   Group |     Obs        Mean    Std. err.   Std. dev.   [95% conf. interval]
+---------+--------------------------------------------------------------------
+       0 |     113    .4070796    .0464225    .4934783    .3150993      .49906
+       1 |     187    .3529412    .0350402    .4791675    .2838139    .4220685
+---------+--------------------------------------------------------------------
+Combined |     300    .3733333    .0279725    .4844977    .3182854    .4283812
+---------+--------------------------------------------------------------------
+    diff |            .0541385    .0581624               -.0604538    .1687307
+------------------------------------------------------------------------------
+    diff = mean(0) - mean(1)                                      t =   0.9308
+H0: diff = 0                             Welch's degrees of freedom =  232.707
+
+    Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = 0.8235         Pr(|T| > |t|) = 0.3529          Pr(T > t) = 0.1765
+
+.         ttest argentineOrigSquatter if neighborhood<5 & repeatedParcel==0 & inBothDatasets==3 & nonSurveyed==. & householdArrivedBefore1986==1, by (propertyOffer) unequa
+> l welch
+
+Two-sample t test with unequal variances
+------------------------------------------------------------------------------
+   Group |     Obs        Mean    Std. err.   Std. dev.   [95% conf. interval]
+---------+--------------------------------------------------------------------
+       0 |     113    .9026549    .0280097    .2977475    .8471572    .9581526
+       1 |     187    .9037433    .0216263    .2957347     .861079    .9464076
+---------+--------------------------------------------------------------------
+Combined |     300    .9033333    .0170894    .2959971    .8697026    .9369641
+---------+--------------------------------------------------------------------
+    diff |           -.0010884     .035387               -.0708018    .0686249
+------------------------------------------------------------------------------
+    diff = mean(0) - mean(1)                                      t =  -0.0308
+H0: diff = 0                             Welch's degrees of freedom =  236.941
+
+    Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = 0.4877         Pr(|T| > |t|) = 0.9755          Pr(T > t) = 0.5123
+
+.         ttest educationYearsOrigSquatter if neighborhood<5 & repeatedParcel==0 & inBothDatasets==3 & nonSurveyed==. & householdArrivedBefore1986==1, by (propertyOffer) u
+> nequal welch
+
+Two-sample t test with unequal variances
+------------------------------------------------------------------------------
+   Group |     Obs        Mean    Std. err.   Std. dev.   [95% conf. interval]
+---------+--------------------------------------------------------------------
+       0 |     113    6.070796    .1876045    1.994263    5.699082    6.442511
+       1 |     187    5.994652    .1413557    1.933011    5.715786    6.273519
+---------+--------------------------------------------------------------------
+Combined |     300    6.023333    .1127757    1.953332    5.801399    6.245268
+---------+--------------------------------------------------------------------
+    diff |            .0761441    .2348976               -.3866572    .5389453
+------------------------------------------------------------------------------
+    diff = mean(0) - mean(1)                                      t =   0.3242
+H0: diff = 0                             Welch's degrees of freedom =  232.378
+
+    Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = 0.6269         Pr(|T| > |t|) = 0.7461          Pr(T > t) = 0.3731
+
+.         ttest argentineOrigSquatterFather if neighborhood<5 & repeatedParcel==0 & inBothDatasets==3 & nonSurveyed==. & householdArrivedBefore1986==1, by (propertyOffer) 
+> unequal welch
+
+Two-sample t test with unequal variances
+------------------------------------------------------------------------------
+   Group |     Obs        Mean    Std. err.   Std. dev.   [95% conf. interval]
+---------+--------------------------------------------------------------------
+       0 |     112    .7946429    .0383424    .4057779    .7186648    .8706209
+       1 |     187    .8663102    .0249534    .3412324    .8170821    .9155382
+---------+--------------------------------------------------------------------
+Combined |     299    .8394649    .0212656     .367717    .7976151    .8813147
+---------+--------------------------------------------------------------------
+    diff |           -.0716673    .0457473               -.1618635    .0185289
+------------------------------------------------------------------------------
+    diff = mean(0) - mean(1)                                      t =  -1.5666
+H0: diff = 0                             Welch's degrees of freedom =  204.704
+
+    Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = 0.0594         Pr(|T| > |t|) = 0.1188          Pr(T > t) = 0.9406
+
+.         ttest educYearsOrigSquatterFather if neighborhood<5 & repeatedParcel==0 & inBothDatasets==3 & nonSurveyed==. & householdArrivedBefore1986==1, by (propertyOffer) 
+> unequal welch
+
+Two-sample t test with unequal variances
+------------------------------------------------------------------------------
+   Group |     Obs        Mean    Std. err.   Std. dev.   [95% conf. interval]
+---------+--------------------------------------------------------------------
+       0 |     110    4.654545    .1469378    1.541097    4.363319    4.945771
+       1 |     187    4.417112    .0761067    1.040743    4.266969    4.567256
+---------+--------------------------------------------------------------------
+Combined |     297    4.505051    .0726689    1.252352    4.362037    4.648064
+---------+--------------------------------------------------------------------
+    diff |            .2374332    .1654779               -.0892332    .5640995
+------------------------------------------------------------------------------
+    diff = mean(0) - mean(1)                                      t =   1.4348
+H0: diff = 0                             Welch's degrees of freedom =  169.268
+
+    Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = 0.9234         Pr(|T| > |t|) = 0.1532          Pr(T > t) = 0.0766
+
+.         ttest argentineOrigSquatterMother if neighborhood<5 & repeatedParcel==0 & inBothDatasets==3 & nonSurveyed==. & householdArrivedBefore1986==1, by (propertyOffer) 
+> unequal welch
+
+Two-sample t test with unequal variances
+------------------------------------------------------------------------------
+   Group |     Obs        Mean    Std. err.   Std. dev.   [95% conf. interval]
+---------+--------------------------------------------------------------------
+       0 |     112    .8035714    .0377097     .399082    .7288471    .8782957
+       1 |     187     .855615    .0257717    .3524233    .8047725    .9064575
+---------+--------------------------------------------------------------------
+Combined |     299    .8361204    .0214432    .3707868    .7939212    .8783196
+---------+--------------------------------------------------------------------
+    diff |           -.0520435     .045675               -.1420764    .0379893
+------------------------------------------------------------------------------
+    diff = mean(0) - mean(1)                                      t =  -1.1394
+H0: diff = 0                             Welch's degrees of freedom =  213.015
+
+    Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = 0.1279         Pr(|T| > |t|) = 0.2558          Pr(T > t) = 0.8721
+
+.         ttest educYearsOrigSquatterMother if neighborhood<5 & repeatedParcel==0 & inBothDatasets==3 & nonSurveyed==. & householdArrivedBefore1986==1, by (propertyOffer) 
+> unequal welch
+
+Two-sample t test with unequal variances
+------------------------------------------------------------------------------
+   Group |     Obs        Mean    Std. err.   Std. dev.   [95% conf. interval]
+---------+--------------------------------------------------------------------
+       0 |     110    4.509091    .1223522     1.28324    4.266593    4.751589
+       1 |     186    4.548387    .0852479    1.162626    4.380204     4.71657
+---------+--------------------------------------------------------------------
+Combined |     296    4.533784    .0701466    1.206848    4.395733    4.671835
+---------+--------------------------------------------------------------------
+    diff |           -.0392962    .1491216               -.3332403     .254648
+------------------------------------------------------------------------------
+    diff = mean(0) - mean(1)                                      t =  -0.2635
+H0: diff = 0                             Welch's degrees of freedom =  212.871
+
+    Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = 0.3962         Pr(|T| > |t|) = 0.7924          Pr(T > t) = 0.6038
+
+. 
+end of do-file
+
+. do "C:\Users\maior\AppData\Local\Temp\STD1b78_000000.tmp"
+
+. **********************************************************************************
+> ******************
+. 
+. log off
+      name:  <unnamed>
+       log:  C:\Users\maior\OneDrive\2016\Documentos\2022\MAECO - MICROECONOMETRIA I
+> I 2023\Microeconometria II - Practicas 2023 - PS 5\JPubE - Galiani and Schargrodsk
+> y - Property rights for the poor - Effects of land titling.log
+  log type:  text
+ paused on:  26 Aug 2023, 12:47:43
+------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:\Users\maior\OneDrive\2016\Documentos\2022\MAECO - MICROECONOMETRIA I
+> I 2023\Microeconometria II - Practicas 2023 - PS 5\JPubE - Galiani and Schargrodsk
+> y - Property rights for the poor - Effects of land titling.log
+  log type:  text
+resumed on:  26 Aug 2023, 12:47:43
+
+. 
+end of do-file
+
+. do "C:\Users\maior\AppData\Local\Temp\STD1b78_000000.tmp"
+
+. 
+.         *** Table 2
+.                 ttest householdArrivedBefore1986 if (repeatedParcel==0 & neighborh
+> ood<5), by (propertyOffer) unequal welch
+
+Two-sample t test with unequal variances
+------------------------------------------------------------------------------
+   Group |     Obs        Mean    Std. err.   Std. dev.   [95% conf. interval]
+---------+--------------------------------------------------------------------
+       0 |     181    .6243094    .0360976    .4856441    .5530804    .6955384
+       1 |     267    .7003745    .0280875    .4589542    .6450723    .7556767
+---------+--------------------------------------------------------------------
+Combined |     448    .6696429    .0222464    .4708675    .6259223    .7133634
+---------+--------------------------------------------------------------------
+    diff |           -.0760651    .0457378                -.166001    .0138707
+------------------------------------------------------------------------------
+    diff = mean(0) - mean(1)                                      t =  -1.6631
+H0: diff = 0                             Welch's degrees of freedom =  373.596
+
+    Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = 0.0486         Pr(|T| > |t|) = 0.0971          Pr(T > t) = 0.9514
+
+.                 ttest householdArrivedBefore1986 if (repeatedParcel==0 & propertyR
+> ightOfferLate==0 & neighborhood<5), by (propertyOffer) unequal welch
+
+Two-sample t test with unequal variances
+------------------------------------------------------------------------------
+   Group |     Obs        Mean    Std. err.   Std. dev.   [95% conf. interval]
+---------+--------------------------------------------------------------------
+       0 |     181    .6243094    .0360976    .4856441    .5530804    .6955384
+       1 |      74    .7297297    .0519779    .4471308    .6261379    .8333215
+---------+--------------------------------------------------------------------
+Combined |     255     .654902    .0298293    .4763351    .5961578    .7136461
+---------+--------------------------------------------------------------------
+    diff |           -.1054203     .063283               -.2304727    .0196321
+------------------------------------------------------------------------------
+    diff = mean(0) - mean(1)                                      t =  -1.6659
+H0: diff = 0                             Welch's degrees of freedom =  148.377
+
+    Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = 0.0489         Pr(|T| > |t|) = 0.0979          Pr(T > t) = 0.9511
+
+.                 ttest householdArrivedBefore1986 if (repeatedParcel==0 & propertyR
+> ightOfferEarly==0 & neighborhood<5), by (propertyOffer) unequal welch
+
+Two-sample t test with unequal variances
+------------------------------------------------------------------------------
+   Group |     Obs        Mean    Std. err.   Std. dev.   [95% conf. interval]
+---------+--------------------------------------------------------------------
+       0 |     181    .6243094    .0360976    .4856441    .5530804    .6955384
+       1 |     193    .6891192    .0334036    .4640579     .623234    .7550044
+---------+--------------------------------------------------------------------
+Combined |     374     .657754    .0245667     .475097    .6094475    .7060606
+---------+--------------------------------------------------------------------
+    diff |           -.0648098    .0491817               -.1615209    .0319014
+------------------------------------------------------------------------------
+    diff = mean(0) - mean(1)                                      t =  -1.3178
+H0: diff = 0                             Welch's degrees of freedom =  369.555
+
+    Ha: diff < 0                 Ha: diff != 0                 Ha: diff > 0
+ Pr(T < t) = 0.0942         Pr(|T| > |t|) = 0.1884          Pr(T > t) = 0.9058
+
+. 
+end of do-file
+
+. do "C:\Users\maior\AppData\Local\Temp\STD1b78_000000.tmp"
+
+.         global var_list numberOtherRelatives propertyRight parcelSurface distance
+> ToCreek
+
+. 
+end of do-file
+
+. sum $var_list
+variable numberOtherRelatives not found
+r(111);
+
+. do "C:\Users\maior\AppData\Local\Temp\STD1b78_000000.tmp"
+
+. ****************************************************************************************************
+. 
+. log off
+      name:  <unnamed>
+       log:  C:\Users\maior\OneDrive\2016\Documentos\2022\MAECO - MICROECONOMETRIA II 2023\Microeconometria II - Practicas 2023 - PS 5\JPubE - Galiani and Schargrodsky - P
+> roperty rights for the poor - Effects of land titling.log
+  log type:  text
+ paused on:  26 Aug 2023, 12:49:46
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:\Users\maior\OneDrive\2016\Documentos\2022\MAECO - MICROECONOMETRIA II 2023\Microeconometria II - Practicas 2023 - PS 5\JPubE - Galiani and Schargrodsky - P
+> roperty rights for the poor - Effects of land titling.log
+  log type:  text
+resumed on:  26 Aug 2023, 12:49:46
+
+. 
+. *** Table 5
+.         * reg 1
+.         reg householdSize propertyRight parcelSurface distanceToCreek blockCorner distToNonSquatted ageOfOrigSquatterDummy ageOsMiss femaleOrigSquatter argentineOrigSqua
+> tter educationYearsOrigSquatter argentineOrigSquatterFather argentinaFatherOsMiss educYearsOrigSquatterFather educationOfTheFatherMiss argentineOrigSquatterMother educYe
+> arsOrigSquatterMother educationOfTheMotherMiss if neighborhood<5 &  inBothDatasets==3 & nonSurveyed==. & householdArrivedBefore1986==1
+
+      Source |       SS           df       MS      Number of obs   =       313
+-------------+----------------------------------   F(17, 295)      =      1.96
+       Model |  265.702234        17  15.6295432   Prob > F        =    0.0137
+    Residual |  2354.63003       295  7.98179673   R-squared       =    0.1014
+-------------+----------------------------------   Adj R-squared   =    0.0496
+       Total |  2620.33227       312  8.39850086   Root MSE        =    2.8252
+
+---------------------------------------------------------------------------------------------
+              householdSize | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+----------------------------+----------------------------------------------------------------
+              propertyRight |  -.9455141   .3368401    -2.81   0.005    -1.608428      -.2826
+              parcelSurface |   .0012381   .0021313     0.58   0.562    -.0029565    .0054326
+            distanceToCreek |   .0348919   .1831381     0.19   0.849    -.3255308    .3953146
+                blockCorner |  -.0468651   .4840727    -0.10   0.923    -.9995386    .9058084
+          distToNonSquatted |   .0286468    .170379     0.17   0.867    -.3066656    .3639592
+     ageOfOrigSquatterDummy |   1.038523   .3374187     3.08   0.002     .3744703    1.702576
+                  ageOsMiss |   1.948486   1.200442     1.62   0.106    -.4140283    4.311001
+         femaleOrigSquatter |  -.0857278   .3388293    -0.25   0.800    -.7525568    .5811013
+      argentineOrigSquatter |  -.8986856   .8369565    -1.07   0.284    -2.545848    .7484766
+ educationYearsOrigSquatter |  -.0751351    .095693    -0.79   0.433    -.2634625    .1131924
+argentineOrigSquatterFather |   1.236074    .669885     1.85   0.066    -.0822847    2.554434
+      argentinaFatherOsMiss |  -.3736414   3.587723    -0.10   0.917    -7.434416    6.687134
+educYearsOrigSquatterFather |  -.1765712   .1534635    -1.15   0.251    -.4785933    .1254509
+   educationOfTheFatherMiss |  -10.54684   3.658133    -2.88   0.004    -17.74618   -3.347496
+argentineOrigSquatterMother |  -.7500732   .6742015    -1.11   0.267    -2.076927     .576781
+educYearsOrigSquatterMother |   .0699584   .1617112     0.43   0.666    -.2482955    .3882122
+   educationOfTheMotherMiss |   8.588553   2.926942     2.93   0.004      2.82822    14.34889
+                      _cons |   6.409368   1.310881     4.89   0.000     3.829504    8.989232
+---------------------------------------------------------------------------------------------
+
+.         sum householdSize if e(sample) & propertyRight==0
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+householdS~e |        140    6.057143    3.173114          1         17
+
+.         * reg 2
+.         reg spouse propertyRight parcelSurface distanceToCreek blockCorner distToNonSquatted ageOfOrigSquatterDummy ageOsMiss femaleOrigSquatter argentineOrigSquatter ed
+> ucationYearsOrigSquatter argentineOrigSquatterFather argentinaFatherOsMiss educYearsOrigSquatterFather educationOfTheFatherMiss argentineOrigSquatterMother educYearsOrig
+> SquatterMother educationOfTheMotherMiss if neighborhood<5 &  inBothDatasets==3 & nonSurveyed==. & householdArrivedBefore1986==1
+
+      Source |       SS           df       MS      Number of obs   =       313
+-------------+----------------------------------   F(17, 295)      =      2.63
+       Model |  8.20331134        17  .482547726   Prob > F        =    0.0005
+    Residual |  54.1672957       295  .183617951   R-squared       =    0.1315
+-------------+----------------------------------   Adj R-squared   =    0.0815
+       Total |   62.370607       312  .199905792   Root MSE        =    .42851
+
+---------------------------------------------------------------------------------------------
+                     spouse | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+----------------------------+----------------------------------------------------------------
+              propertyRight |  -.0140378   .0510894    -0.27   0.784    -.1145838    .0865081
+              parcelSurface |   -.000305   .0003233    -0.94   0.346    -.0009412    .0003312
+            distanceToCreek |   .0184745    .027777     0.67   0.507    -.0361918    .0731408
+                blockCorner |   .0300246   .0734206     0.41   0.683    -.1144699    .1745191
+          distToNonSquatted |   .0095677   .0258418     0.37   0.711    -.0412901    .0604254
+     ageOfOrigSquatterDummy |   .0285582   .0511772     0.56   0.577    -.0721604    .1292769
+                  ageOsMiss |  -.1180087   .1820741    -0.65   0.517    -.4763376    .2403201
+         femaleOrigSquatter |  -.2779584   .0513911    -5.41   0.000    -.3790981   -.1768187
+      argentineOrigSquatter |  -.0059464   .1269434    -0.05   0.963    -.2557759     .243883
+ educationYearsOrigSquatter |   .0248654    .014514     1.71   0.088    -.0036987    .0534295
+argentineOrigSquatterFather |  -.0453366   .1016032    -0.45   0.656    -.2452956    .1546224
+      argentinaFatherOsMiss |   .2890666   .5441594     0.53   0.596    -.7818598    1.359993
+educYearsOrigSquatterFather |   .0005948   .0232762     0.03   0.980    -.0452136    .0464033
+   educationOfTheFatherMiss |   .4905769   .5548386     0.88   0.377    -.6013666     1.58252
+argentineOrigSquatterMother |  -.0591778   .1022579    -0.58   0.563    -.2604253    .1420697
+educYearsOrigSquatterMother |  -.0197664   .0245272    -0.81   0.421    -.0680368     .028504
+   educationOfTheMotherMiss |  -.5351105    .443937    -1.21   0.229    -1.408795    .3385745
+                      _cons |   .8869614   .1988248     4.46   0.000     .4956666    1.278256
+---------------------------------------------------------------------------------------------
+
+.         sum spouse if e(sample) & propertyRight==0
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+      spouse |        140    .7357143    .4425354          0          1
+
+.         * reg 3
+.         reg numberChildrensMoreThan14 propertyRight parcelSurface distanceToCreek blockCorner distToNonSquatted ageOfOrigSquatterDummy ageOsMiss femaleOrigSquatter argen
+> tineOrigSquatter educationYearsOrigSquatter argentineOrigSquatterFather argentinaFatherOsMiss educYearsOrigSquatterFather educationOfTheFatherMiss argentineOrigSquatterM
+> other educYearsOrigSquatterMother educationOfTheMotherMiss if neighborhood<5 &  inBothDatasets==3 & nonSurveyed==. & householdArrivedBefore1986==1
+
+      Source |       SS           df       MS      Number of obs   =       313
+-------------+----------------------------------   F(17, 295)      =      0.78
+       Model |  32.3155835        17  1.90091668   Prob > F        =    0.7159
+    Residual |  718.789848       295  2.43657576   R-squared       =    0.0430
+-------------+----------------------------------   Adj R-squared   =   -0.0121
+       Total |  751.105431       312   2.4073892   Root MSE        =     1.561
+
+---------------------------------------------------------------------------------------------
+  numberChildrensMoreThan14 | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+----------------------------+----------------------------------------------------------------
+              propertyRight |  -.0115513   .1861073    -0.06   0.951    -.3778175     .354715
+              parcelSurface |   .0011754   .0011776     1.00   0.319    -.0011421     .003493
+            distanceToCreek |   .0958586   .1011855     0.95   0.344    -.1032783    .2949955
+                blockCorner |   -.061378   .2674547    -0.23   0.819     -.587739     .464983
+          distToNonSquatted |   .0827511    .094136     0.88   0.380    -.1025121    .2680144
+     ageOfOrigSquatterDummy |    .274139    .186427     1.47   0.142    -.0927565    .6410344
+                  ageOsMiss |  -.5463565   .6632552    -0.82   0.411    -1.851668     .758955
+         femaleOrigSquatter |  -.0183724   .1872064    -0.10   0.922    -.3868017    .3500568
+      argentineOrigSquatter |   -.158991   .4624263    -0.34   0.731    -1.069064    .7510816
+ educationYearsOrigSquatter |   .0018849   .0528713     0.04   0.972    -.1021678    .1059376
+argentineOrigSquatterFather |   .4919234   .3701177     1.33   0.185    -.2364824    1.220329
+      argentinaFatherOsMiss |   -.753275    1.98225    -0.38   0.704    -4.654419    3.147869
+educYearsOrigSquatterFather |   .0116104     .08479     0.14   0.891    -.1552596    .1784804
+   educationOfTheFatherMiss |  -3.196942   2.021152    -1.58   0.115    -7.174647     .780763
+argentineOrigSquatterMother |  -.1168138   .3725026    -0.31   0.754    -.8499131    .6162855
+educYearsOrigSquatterMother |   .0420178    .089347     0.47   0.639    -.1338204    .2178561
+   educationOfTheMotherMiss |   2.680865   1.617163     1.66   0.098     -.501773    5.863503
+                      _cons |    .475195   .7242741     0.66   0.512    -.9502041    1.900594
+---------------------------------------------------------------------------------------------
+
+.         sum numberChildrensMoreThan14 if e(sample) & propertyRight==0
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+numberChi~14 |        140    1.685714    1.609708          0          7
+
+.         
+. 
+end of do-file
+
+. do "C:\Users\maior\AppData\Local\Temp\STD1b78_000000.tmp"
+
+.         global var_list numberOtherRelatives propertyRight parcelSurface distanceToCreek
+
+. 
+end of do-file
+
+. sum $var_list
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+numberOthe~s |        617    .8427877    1.663078          0         13
+propertyRi~t |      1,865    .7067024    .4553958          0          1
+parcelSurf~e |      1,865    310.6452    109.7949     112.53      655.4
+distanceTo~k |      1,865    2.834853    1.447792          0          6
+
